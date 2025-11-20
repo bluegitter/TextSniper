@@ -39,11 +39,11 @@
 		FE7A0A982ECEA25B007A1129 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
 		FE7A0A992ECEA25B007A1129 /* BarcodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReader.swift; sourceTree = "<group>"; };
 		FE8D53882ECED259001ED274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FEB1A0082ECF04D90080D54C /* ToastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastPresenter.swift; sourceTree = "<group>"; };
 		FEB1A0002ECF025E0080D54C /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		FEB1A0022ECF02B00080D54C /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
 		FEB1A0042ECF03080080D54C /* CustomWordsPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWordsPreferencesViewController.swift; sourceTree = "<group>"; };
 		FEB1A0062ECF03500080D54C /* ShortcutsPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsPreferencesViewController.swift; sourceTree = "<group>"; };
+		FEB1A0082ECF04D90080D54C /* ToastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,7 +319,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TextSniper/TextSniper.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -347,7 +347,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TextSniper/TextSniper.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
