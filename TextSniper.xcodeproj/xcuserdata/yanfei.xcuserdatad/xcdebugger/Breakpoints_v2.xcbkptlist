@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "5DB67F83-C0B2-491B-BB56-6BC80CD93959"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1822BB7E-688D-462E-A66A-B1E2DB86FF95"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TextSniper/TextRecognizer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "recognize(in:language:autoDetect:customWords:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1822BB7E-688D-462E-A66A-B1E2DB86FF95 - f12706261acc9b21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TextSniper.TextRecognizer.recognize(in: __C.NSImage, language: TextSniper.RecognitionLanguage, autoDetect: Swift.Bool, customWords: Swift.Array&lt;Swift.String&gt;, completion: (Swift.Result&lt;Swift.String, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TextSniper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yanfei/Downloads/TextSniper/TextSniper/TextRecognizer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "854">
+               </Location>
+               <Location
+                  uuid = "1822BB7E-688D-462E-A66A-B1E2DB86FF95 - f12706261acc9b21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TextSniper.TextRecognizer.recognize(in: __C.NSImage, language: TextSniper.RecognitionLanguage, autoDetect: Swift.Bool, customWords: Swift.Array&lt;Swift.String&gt;, completion: (Swift.Result&lt;Swift.String, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TextSniper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yanfei/Downloads/TextSniper/TextSniper/TextRecognizer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "5298">
+               </Location>
+               <Location
+                  uuid = "1822BB7E-688D-462E-A66A-B1E2DB86FF95 - f12706261acc9b21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TextSniper.TextRecognizer.recognize(in: __C.NSImage, language: TextSniper.RecognitionLanguage, autoDetect: Swift.Bool, customWords: Swift.Array&lt;Swift.String&gt;, completion: (Swift.Result&lt;Swift.String, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TextSniper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yanfei/Downloads/TextSniper/TextSniper/TextRecognizer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "5317">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
