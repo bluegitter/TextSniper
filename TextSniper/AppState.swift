@@ -161,7 +161,7 @@ final class AppState: NSObject, ObservableObject {
             copyToClipboard(processed)
         }
 
-        notifyUser(title: "Text Copied", text: processed)
+        notifyUser(title: "识别成功", text: "识别内容已放入剪贴板")
 
         if textToSpeechEnabled {
             speak(text: processed)
@@ -176,10 +176,7 @@ final class AppState: NSObject, ObservableObject {
 
     private func notifyUser(title: String, text: String) {
         guard !disableSuccessNotification else { return }
-        let notification = NSUserNotification()
-        notification.title = title
-        notification.informativeText = text
-        NSUserNotificationCenter.default.deliver(notification)
+        ToastPresenter.shared.show(message: text)
     }
 
     private func speak(text: String) {

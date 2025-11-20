@@ -33,7 +33,7 @@ final class CustomWordsPreferencesViewController: NSViewController {
 
     override func loadView() {
         print("✅ CustomWordsPreferencesViewController.loadView")
-        let rootView = NSView(frame: NSRect(x: 0, y: 0, width: 510, height: 620))
+        let rootView = NSView(frame: NSRect(x: 0, y: 0, width: 510, height: 327))
         rootView.translatesAutoresizingMaskIntoConstraints = false
         self.view = rootView
 

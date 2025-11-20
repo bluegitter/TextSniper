@@ -22,6 +22,7 @@
 		FEB1A0032ECF02B00080D54C /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1A0022ECF02B00080D54C /* GeneralPreferencesViewController.swift */; };
 		FEB1A0052ECF03080080D54C /* CustomWordsPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1A0042ECF03080080D54C /* CustomWordsPreferencesViewController.swift */; };
 		FEB1A0072ECF03500080D54C /* ShortcutsPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1A0062ECF03500080D54C /* ShortcutsPreferencesViewController.swift */; };
+		FEB1A0092ECF04D90080D54C /* ToastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1A0082ECF04D90080D54C /* ToastPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FE7A0A982ECEA25B007A1129 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
 		FE7A0A992ECEA25B007A1129 /* BarcodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReader.swift; sourceTree = "<group>"; };
 		FE8D53882ECED259001ED274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FEB1A0082ECF04D90080D54C /* ToastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastPresenter.swift; sourceTree = "<group>"; };
 		FEB1A0002ECF025E0080D54C /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		FEB1A0022ECF02B00080D54C /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
 		FEB1A0042ECF03080080D54C /* CustomWordsPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWordsPreferencesViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				FEB1A0022ECF02B00080D54C /* GeneralPreferencesViewController.swift */,
 				FEB1A0042ECF03080080D54C /* CustomWordsPreferencesViewController.swift */,
 				FEB1A0062ECF03500080D54C /* ShortcutsPreferencesViewController.swift */,
+				FEB1A0082ECF04D90080D54C /* ToastPresenter.swift */,
 				FE4819BB2ECE97C800AD4F46 /* ContentView.swift */,
 				FE7A0A942ECEA25B007A1129 /* AppState.swift */,
 				FE7A0A952ECEA25B007A1129 /* MenuBarView.swift */,
@@ -184,6 +187,7 @@
 				FE7A0A9D2ECEA25B007A1129 /* SelectionOverlayWindowController.swift in Sources */,
 				FE7A0A9A2ECEA25B007A1129 /* AppState.swift in Sources */,
 				FE7A0A9C2ECEA25B007A1129 /* ScreenCaptureCoordinator.swift in Sources */,
+				FEB1A0092ECF04D90080D54C /* ToastPresenter.swift in Sources */,
 				FE4819BA2ECE97C800AD4F46 /* TextSniperApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

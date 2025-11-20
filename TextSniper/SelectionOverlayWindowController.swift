@@ -150,11 +150,6 @@ final class SelectionOverlayView: NSView {
         overlay.windingRule = .evenOdd
         NSColor.black.withAlphaComponent(0.35).setFill()
         overlay.fill()
-
-        NSColor.systemBlue.setStroke()
-        let path = NSBezierPath(rect: selection)
-        path.lineWidth = 2
-        path.stroke()
     }
 
     private var selectionRect: NSRect? {
