@@ -25,6 +25,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.setActivationPolicy(.accessory)
         constructStatusItem()
         observeStateChanges()
+        HotKeyManager.shared.registerCaptureHotKey { [weak self] in
+            self?.appState.captureText()
+        }
     }
 
     private func constructStatusItem() {

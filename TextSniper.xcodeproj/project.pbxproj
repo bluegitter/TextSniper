@@ -23,6 +23,7 @@
 		FEB1A0052ECF03080080D54C /* CustomWordsPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1A0042ECF03080080D54C /* CustomWordsPreferencesViewController.swift */; };
 		FEB1A0072ECF03500080D54C /* ShortcutsPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1A0062ECF03500080D54C /* ShortcutsPreferencesViewController.swift */; };
 		FEB1A0092ECF04D90080D54C /* ToastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1A0082ECF04D90080D54C /* ToastPresenter.swift */; };
+		FEB1A00B2ECF064F0080D54C /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1A00A2ECF064F0080D54C /* HotKeyManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		FEB1A0042ECF03080080D54C /* CustomWordsPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWordsPreferencesViewController.swift; sourceTree = "<group>"; };
 		FEB1A0062ECF03500080D54C /* ShortcutsPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsPreferencesViewController.swift; sourceTree = "<group>"; };
 		FEB1A0082ECF04D90080D54C /* ToastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastPresenter.swift; sourceTree = "<group>"; };
+		FEB1A00A2ECF064F0080D54C /* HotKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				FEB1A0042ECF03080080D54C /* CustomWordsPreferencesViewController.swift */,
 				FEB1A0062ECF03500080D54C /* ShortcutsPreferencesViewController.swift */,
 				FEB1A0082ECF04D90080D54C /* ToastPresenter.swift */,
+				FEB1A00A2ECF064F0080D54C /* HotKeyManager.swift */,
 				FE4819BB2ECE97C800AD4F46 /* ContentView.swift */,
 				FE7A0A942ECEA25B007A1129 /* AppState.swift */,
 				FE7A0A952ECEA25B007A1129 /* MenuBarView.swift */,
@@ -187,6 +190,7 @@
 				FE7A0A9D2ECEA25B007A1129 /* SelectionOverlayWindowController.swift in Sources */,
 				FE7A0A9A2ECEA25B007A1129 /* AppState.swift in Sources */,
 				FE7A0A9C2ECEA25B007A1129 /* ScreenCaptureCoordinator.swift in Sources */,
+				FEB1A00B2ECF064F0080D54C /* HotKeyManager.swift in Sources */,
 				FEB1A0092ECF04D90080D54C /* ToastPresenter.swift in Sources */,
 				FE4819BA2ECE97C800AD4F46 /* TextSniperApp.swift in Sources */,
 			);
