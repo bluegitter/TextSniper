@@ -11,59 +11,59 @@ struct MenuBarView: View {
     @EnvironmentObject private var appState: AppState
 
     var body: some View {
-        Button("Capture Text") {
+        Button("截取文字") {
             appState.captureText()
         }
         .keyboardShortcut("2", modifiers: [.shift, .command])
 
-        Button("Read QR/Bar Code") {
+        Button("识别二维码/条码") {
             appState.captureCode()
         }
 
-        Menu("Import from iPhone") {
+        Menu("从 iPhone 导入") {
             Text("iPhone")
                 .foregroundStyle(.secondary)
                 .disabled(true)
 
             Divider()
 
-            Button("Take Photo") {
-                appState.showComingSoon(title: "Take Photo")
+            Button("拍照") {
+                appState.showComingSoon(title: "拍照")
             }
 
-            Button("Scan Documents") {
-                appState.showComingSoon(title: "Scan Document")
+            Button("扫描文稿") {
+                appState.showComingSoon(title: "扫描文稿")
             }
 
-            Button("Add Sketch") {
-                appState.showComingSoon(title: "Add Sketch")
+            Button("添加草图") {
+                appState.showComingSoon(title: "添加草图")
             }
         }
 
         Divider()
 
-        Toggle("Keep Line Breaks", isOn: $appState.keepLineBreaks)
-        Toggle("Additive Clipboard", isOn: $appState.additiveClipboard)
+        Toggle("保留换行", isOn: $appState.keepLineBreaks)
+        Toggle("追加剪贴板", isOn: $appState.additiveClipboard)
 
-        Button("Clear Clipboard History") {
+        Button("清空剪贴板历史") {
             appState.clearAdditiveClipboardHistory()
         }
         .disabled(appState.additiveClipboardHistory.isEmpty)
 
-        Toggle("Text to Speech", isOn: $appState.textToSpeechEnabled)
+        Toggle("文字转语音", isOn: $appState.textToSpeechEnabled)
 
-        Button("Stop Speaking") {
+        Button("停止朗读") {
             appState.stopSpeaking()
         }
         .disabled(!appState.isSpeaking)
 
         Divider()
 
-        Button("Settings...") {
+        Button("设置…") {
             appState.openSettings()
         }
 
-        Button("Quit TextSniper") {
+        Button("退出 TextSniper") {
             appState.quit()
         }
         .keyboardShortcut("Q")

@@ -14,21 +14,21 @@ final class ShortcutsPreferencesViewController: NSViewController {
     }
 
     private let globalRows: [ShortcutRow] = [
-        .init(title: "Capture Text", defaultKey: "⇧⌘2"),
-        .init(title: "Capture Last Selection", defaultKey: nil),
-        .init(title: "Capture Without Line Breaks", defaultKey: nil),
-        .init(title: "Capture With Line Breaks", defaultKey: nil),
-        .init(title: "Capture With Text to Speech", defaultKey: nil),
-        .init(title: "Read QR/Bar Code", defaultKey: nil),
-        .init(title: "Stop Speaking", defaultKey: nil),
-        .init(title: "Toggle Additive Clipboard", defaultKey: nil),
-        .init(title: "Clear Additive Clipboard History", defaultKey: nil)
+        .init(title: "截取文字", defaultKey: "⇧⌘2"),
+        .init(title: "截取上一次区域", defaultKey: nil),
+        .init(title: "截取时移除换行", defaultKey: nil),
+        .init(title: "截取时保留换行", defaultKey: nil),
+        .init(title: "截取并朗读", defaultKey: nil),
+        .init(title: "识别二维码/条码", defaultKey: nil),
+        .init(title: "停止朗读", defaultKey: nil),
+        .init(title: "切换追加剪贴板", defaultKey: nil),
+        .init(title: "清空追加剪贴板历史", defaultKey: nil)
     ]
 
     private let captureRows: [ShortcutRow] = [
-        .init(title: "Keep Line Breaks", defaultKey: "⌘L"),
-        .init(title: "Additive Clipboard", defaultKey: "⌘H"),
-        .init(title: "Text to Speech", defaultKey: "⌘S")
+        .init(title: "保留换行", defaultKey: "⌘L"),
+        .init(title: "追加剪贴板", defaultKey: "⌘H"),
+        .init(title: "文字转语音", defaultKey: "⌘S")
     ]
     private func makeSeparator() -> NSView {
         let line = NSView()
@@ -44,11 +44,11 @@ final class ShortcutsPreferencesViewController: NSViewController {
         rootView.translatesAutoresizingMaskIntoConstraints = false
         self.view = rootView
 
-        let globalTitle = sectionTitleLabel("Global")
+        let globalTitle = sectionTitleLabel("全局快捷键")
         let globalStack = buildShortcutsStack(from: globalRows)
 
-        let captureTitle = sectionTitleLabel("Capture Text mode")
-        let captureSubtitle = smallLabel("Toggles preferences when Capture Text operation is active.")
+        let captureTitle = sectionTitleLabel("截取模式切换")
+        let captureSubtitle = smallLabel("执行截取操作时，可使用以下快捷键快速切换偏好。")
         let captureStack = buildShortcutsStack(from: captureRows)
 
         let contentStack = NSStackView(views: [
@@ -83,7 +83,7 @@ final class ShortcutsPreferencesViewController: NSViewController {
 
         for row in rows {
             let label = NSTextField(labelWithString: row.title)
-            let recordButton = NSButton(title: "Record Shortcut", target: nil, action: nil)
+            let recordButton = NSButton(title: "设置快捷键", target: nil, action: nil)
             recordButton.bezelStyle = .rounded
 
             let shortcutLabel = NSTextField(labelWithString: row.defaultKey ?? "")

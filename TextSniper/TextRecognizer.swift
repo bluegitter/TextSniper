@@ -9,13 +9,13 @@ import AppKit
 import Foundation
 
 enum RecognitionLanguage: String, CaseIterable, Identifiable {
-    case english = "English"
-    case chineseSimplified = "Chinese Simplified"
-    case chineseTraditional = "Chinese Traditional"
-    case japanese = "Japanese"
-    case korean = "Korean"
-    case french = "French"
-    case german = "German"
+    case english = "英语"
+    case chineseSimplified = "简体中文"
+    case chineseTraditional = "繁体中文"
+    case japanese = "日语"
+    case korean = "韩语"
+    case french = "法语"
+    case german = "德语"
 
     var id: String { rawValue }
 }
@@ -29,9 +29,9 @@ final class TextRecognizer {
         var errorDescription: String? {
             switch self {
             case .missingImageData:
-                return "Unable to encode captured image."
+                return "无法读取截屏图像。"
             case .invalidResponse:
-                return "The recognition service returned an unexpected response."
+                return "识别服务返回了无法解析的结果。"
             case .apiFailure(let message):
                 return message
             }
@@ -110,7 +110,7 @@ final class TextRecognizer {
 
                 let decoded = try JSONDecoder().decode(APIResponse.self, from: data)
                 guard decoded.code == 200, let pages = decoded.data else {
-                    let message = decoded.msg ?? "Recognition failed with code \(decoded.code)."
+                    let message = decoded.msg ?? "识别失败，错误代码 \(decoded.code)"
                     print("[TextRecognizer] API responded with error: \(message)")
                     completion(.failure(RecognitionError.apiFailure(message)))
                     return

@@ -8,24 +8,24 @@
 import AppKit
 
 final class GeneralPreferencesViewController: NSViewController {
-    private let launchAtLoginButton = NSButton(checkboxWithTitle: "Launch at Login", target: nil, action: nil)
-    private let showInMenuBarButton = NSButton(checkboxWithTitle: "Show in Menu Bar", target: nil, action: nil)
-    private let disableSoundButton = NSButton(checkboxWithTitle: "Disable Sound Effects", target: nil, action: nil)
-    private let disableSuccessButton = NSButton(checkboxWithTitle: "Disable Success Notification", target: nil, action: nil)
-    private let autoOpenLinksButton = NSButton(checkboxWithTitle: "Automatically Open Links", target: nil, action: nil)
+    private let launchAtLoginButton = NSButton(checkboxWithTitle: "登录时启动", target: nil, action: nil)
+    private let showInMenuBarButton = NSButton(checkboxWithTitle: "在菜单栏显示", target: nil, action: nil)
+    private let disableSoundButton = NSButton(checkboxWithTitle: "关闭提示音", target: nil, action: nil)
+    private let disableSuccessButton = NSButton(checkboxWithTitle: "关闭成功提示", target: nil, action: nil)
+    private let autoOpenLinksButton = NSButton(checkboxWithTitle: "自动打开链接", target: nil, action: nil)
 
     private let recognitionPopup = NSPopUpButton()
-    private let autoDetectLanguageButton = NSButton(checkboxWithTitle: "Automatically Detect Language", target: nil, action: nil)
+    private let autoDetectLanguageButton = NSButton(checkboxWithTitle: "自动检测语言", target: nil, action: nil)
 
-    private let additiveCheckbox = NSButton(checkboxWithTitle: "Clear Automatically", target: nil, action: nil)
+    private let additiveCheckbox = NSButton(checkboxWithTitle: "粘贴后自动清空", target: nil, action: nil)
 
     private let ttsSlider = NSSlider(value: 180, minValue: 80, maxValue: 400, target: nil, action: nil)
 
     private let versionLabel = NSTextField(labelWithString: "TextSniper 1.11")
-    private let checkUpdatesButton = NSButton(title: "Check for Updates...", target: nil, action: nil)
-    private let autoCheckUpdatesButton = NSButton(checkboxWithTitle: "Automatically Check for Updates", target: nil, action: nil)
-    private let deactivateButton = NSButton(title: "Deactivate license...", target: nil, action: nil)
-    private let feedbackLabel = NSTextField(labelWithString: "Send Feedback:")
+    private let checkUpdatesButton = NSButton(title: "检查更新…", target: nil, action: nil)
+    private let autoCheckUpdatesButton = NSButton(checkboxWithTitle: "自动检查更新", target: nil, action: nil)
+    private let deactivateButton = NSButton(title: "停用许可证…", target: nil, action: nil)
+    private let feedbackLabel = NSTextField(labelWithString: "反馈：")
     private let feedbackButton = NSButton(title: "support@textsniper.app", target: nil, action: nil)
 
     override func loadView() {
@@ -43,12 +43,12 @@ final class GeneralPreferencesViewController: NSViewController {
         showInMenuBarButton.state = .on
 
         recognitionPopup.addItems(withTitles: [
-            "System Default",
-            "Chinese Simplified",
-            "English",
-            "Japanese"
+            "跟随系统",
+            "简体中文",
+            "英语",
+            "日语"
         ])
-        recognitionPopup.selectItem(withTitle: "Chinese Simplified")
+        recognitionPopup.selectItem(withTitle: "简体中文")
 
         feedbackButton.bezelStyle = .inline
         feedbackButton.isBordered = false
@@ -59,7 +59,7 @@ final class GeneralPreferencesViewController: NSViewController {
     }
 
     private func buildLayout() {
-        let systemTitle = sectionTitleLabel("System:")
+        let systemTitle = sectionTitleLabel("系统：")
         let systemStack = verticalStack(spacing: 6, views: [
             launchAtLoginButton,
             showInMenuBarButton,
@@ -69,7 +69,7 @@ final class GeneralPreferencesViewController: NSViewController {
         ])
         let systemGroup = groupStack(title: systemTitle, content: systemStack)
 
-        let recogTitle = sectionTitleLabel("Recognition Language:")
+        let recogTitle = sectionTitleLabel("识别语言：")
         recognitionPopup.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         let recogRow = horizontalStack(spacing: 8, views: [recognitionPopup, NSView()])
         let recogStack = verticalStack(spacing: 8, views: [
@@ -78,14 +78,14 @@ final class GeneralPreferencesViewController: NSViewController {
         ])
         let recogGroup = groupStack(title: recogTitle, content: recogStack)
 
-        let additiveTitle = sectionTitleLabel("Additive Clipboard:")
+        let additiveTitle = sectionTitleLabel("追加剪贴板：")
         let additiveGroup = groupStack(title: additiveTitle, content: additiveCheckbox)
 
-        let ttsTitle = sectionTitleLabel("Text to Speech Rate:")
+        let ttsTitle = sectionTitleLabel("文字转语音语速：")
         ttsSlider.isContinuous = true
         let ttsGroup = groupStack(title: ttsTitle, content: ttsSlider)
 
-        let aboutTitle = sectionTitleLabel("About:")
+        let aboutTitle = sectionTitleLabel("关于：")
         let versionRow = horizontalStack(views: [versionLabel, NSView()])
         let updatesRow = horizontalStack(spacing: 12, views: [checkUpdatesButton, autoCheckUpdatesButton])
         let deactivateRow = horizontalStack(views: [deactivateButton, NSView()])

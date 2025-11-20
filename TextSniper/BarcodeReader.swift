@@ -16,9 +16,9 @@ final class BarcodeReader {
         var errorDescription: String? {
             switch self {
             case .missingCGImage:
-                return "Unable to read pixels from captured area."
+                return "无法读取截取区域的像素。"
             case .noPayload:
-                return "No QR or bar code detected."
+                return "未检测到二维码或条码。"
             }
         }
     }

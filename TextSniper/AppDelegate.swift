@@ -40,7 +40,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         menu.autoenablesItems = false
 
         let captureItem = NSMenuItem(
-            title: "Capture Text",
+            title: "截取文字",
             action: #selector(captureText),
             keyEquivalent: "2"
         )
@@ -49,7 +49,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(captureItem)
 
         let qrItem = NSMenuItem(
-            title: "Read QR/Bar Code",
+            title: "识别二维码/条码",
             action: #selector(readQRCode),
             keyEquivalent: ""
         )
@@ -58,33 +58,33 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         menu.addItem(.separator())
 
-        let importItem = NSMenuItem(title: "Import from iPhone", action: nil, keyEquivalent: "")
-        let importSubmenu = NSMenu(title: "Import from iPhone")
+        let importItem = NSMenuItem(title: "从 iPhone 导入", action: nil, keyEquivalent: "")
+        let importSubmenu = NSMenu(title: "从 iPhone 导入")
         let header = NSMenuItem(title: "iPhone", action: nil, keyEquivalent: "")
         header.isEnabled = false
         importSubmenu.addItem(header)
         importSubmenu.addItem(.separator())
 
-        importSubmenu.addItem(menuButton(title: "Take Photo", action: #selector(takePhoto)))
-        importSubmenu.addItem(menuButton(title: "Scan Documents", action: #selector(scanDocuments)))
-        importSubmenu.addItem(menuButton(title: "Add Sketch", action: #selector(addSketch)))
+        importSubmenu.addItem(menuButton(title: "拍照", action: #selector(takePhoto)))
+        importSubmenu.addItem(menuButton(title: "扫描文稿", action: #selector(scanDocuments)))
+        importSubmenu.addItem(menuButton(title: "添加草图", action: #selector(addSketch)))
 
         menu.setSubmenu(importSubmenu, for: importItem)
         menu.addItem(importItem)
 
         menu.addItem(.separator())
 
-        keepLineBreaksItem = menuToggle(title: "Keep Line Breaks", action: #selector(toggleKeepLineBreaks))
+        keepLineBreaksItem = menuToggle(title: "保留换行", action: #selector(toggleKeepLineBreaks))
         if let keepLineBreaksItem {
             menu.addItem(keepLineBreaksItem)
         }
 
-        additiveClipboardItem = menuToggle(title: "Additive Clipboard", action: #selector(toggleAdditiveClipboard))
+        additiveClipboardItem = menuToggle(title: "追加剪贴板", action: #selector(toggleAdditiveClipboard))
         if let additiveClipboardItem {
             menu.addItem(additiveClipboardItem)
         }
 
-        clearHistoryItem = menuButton(title: "Clear Clipboard History", action: #selector(clearClipboardHistory))
+        clearHistoryItem = menuButton(title: "清空剪贴板历史", action: #selector(clearClipboardHistory))
         clearHistoryItem?.isEnabled = false
         if let clearHistoryItem {
             menu.addItem(clearHistoryItem)
@@ -92,12 +92,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         menu.addItem(.separator())
 
-        textToSpeechItem = menuToggle(title: "Text to Speech", action: #selector(toggleTextToSpeech))
+        textToSpeechItem = menuToggle(title: "文字转语音", action: #selector(toggleTextToSpeech))
         if let textToSpeechItem {
             menu.addItem(textToSpeechItem)
         }
 
-        stopSpeakingItem = menuButton(title: "Stop Speaking", action: #selector(stopSpeaking))
+        stopSpeakingItem = menuButton(title: "停止朗读", action: #selector(stopSpeaking))
         stopSpeakingItem?.isEnabled = false
         if let stopSpeakingItem {
             menu.addItem(stopSpeakingItem)
@@ -105,13 +105,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         menu.addItem(.separator())
 
-        let settingsItem = NSMenuItem(title: "Settings…", action: #selector(openSettings), keyEquivalent: ",")
+        let settingsItem = NSMenuItem(title: "设置…", action: #selector(openSettings), keyEquivalent: ",")
         settingsItem.target = self
         menu.addItem(settingsItem)
 
         menu.addItem(.separator())
 
-        let quitItem = NSMenuItem(title: "Quit TextSniper", action: #selector(quitApp), keyEquivalent: "q")
+        let quitItem = NSMenuItem(title: "退出 TextSniper", action: #selector(quitApp), keyEquivalent: "q")
         quitItem.target = self
         menu.addItem(quitItem)
 
@@ -180,15 +180,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc private func takePhoto(_ sender: Any?) {
-        appState.showComingSoon(title: "Take Photo")
+        appState.showComingSoon(title: "拍照")
     }
 
     @objc private func scanDocuments(_ sender: Any?) {
-        appState.showComingSoon(title: "Scan Documents")
+        appState.showComingSoon(title: "扫描文稿")
     }
 
     @objc private func addSketch(_ sender: Any?) {
-        appState.showComingSoon(title: "Add Sketch")
+        appState.showComingSoon(title: "添加草图")
     }
 
     @objc private func toggleKeepLineBreaks(_ sender: NSMenuItem) {

@@ -66,12 +66,12 @@ final class AppState: NSObject, ObservableObject {
                     switch result {
                     case .success(let payload):
                         self.copyToClipboard(payload)
-                        self.notifyUser(title: "Code Copied", text: payload)
+                        self.notifyUser(title: "识别成功", text: "二维码/条码内容已复制：" + payload)
                         if self.textToSpeechEnabled {
                             self.speak(text: payload)
                         }
                     case .failure(let error):
-                        self.notifyUser(title: "Unable to read code", text: error.localizedDescription)
+                        self.notifyUser(title: "识别失败", text: "无法读取二维码/条码：\(error.localizedDescription)")
                     }
                 }
             }
@@ -79,7 +79,7 @@ final class AppState: NSObject, ObservableObject {
     }
 
     func showComingSoon(title: String) {
-        notifyUser(title: title, text: "This action will be available in a future version of TextSniper.")
+        notifyUser(title: title, text: "此功能将于后续版本中提供，敬请期待。")
     }
 
     func clearAdditiveClipboardHistory() {
@@ -138,7 +138,7 @@ final class AppState: NSObject, ObservableObject {
                 case .success(let text):
                     self.handleRecognizedText(text, keepLineBreaks: keepLineBreaks)
                 case .failure(let error):
-                    self.notifyUser(title: "Recognition Failed", text: error.localizedDescription)
+                    self.notifyUser(title: "识别失败", text: error.localizedDescription)
                 }
             }
         }

@@ -8,15 +8,9 @@
 import AppKit
 
 final class CustomWordsPreferencesViewController: NSViewController {
-  deinit {
-        print("🔥 CustomWordsPreferencesViewController deinit")
-    }
-
     private let infoLabel: NSTextField = {
         let text = """
-        If the text you're recognizing uses domain-specific jargon, such as medical or technical terms, \
-        you can tailor the language correction's behavior by setting the Custom Words list. \
-        The words in the list takes precedence over the standard lexicon.
+        当识别内容包含专业术语（如医学、技术等）时，可在此添加自定义词列表；列表中的词将优先于默认词典。
         """
         let label = NSTextField(wrappingLabelWithString: text)
         label.font = .systemFont(ofSize: 12)
@@ -27,12 +21,11 @@ final class CustomWordsPreferencesViewController: NSViewController {
         let view = NSTextView()
         view.isRichText = false
         view.font = .monospacedSystemFont(ofSize: 13, weight: .regular)
-        view.string = "Type custom words separated by comma..."
+        view.string = "请输入自定义词语，使用逗号分隔…"
         return view
     }()
 
     override func loadView() {
-        print("✅ CustomWordsPreferencesViewController.loadView")
         let rootView = NSView(frame: NSRect(x: 0, y: 0, width: 510, height: 327))
         rootView.translatesAutoresizingMaskIntoConstraints = false
         self.view = rootView

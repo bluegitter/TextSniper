@@ -8,13 +8,10 @@
 import AppKit
 
 final class PreferencesWindowController: NSWindowController, NSToolbarDelegate {
-    deinit {
-        print("🔥 PreferencesWindowController deinit")
-    }
     enum Tab: String, CaseIterable {
-        case general = "General"
-        case customWords = "Custom Words"
-        case shortcuts = "Shortcuts"
+        case general = "常规"
+        case customWords = "自定义词汇"
+        case shortcuts = "快捷键"
 
         var toolbarIdentifier: NSToolbarItem.Identifier {
             switch self {
