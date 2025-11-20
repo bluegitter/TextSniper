@@ -91,7 +91,13 @@ final class AppState: NSObject, ObservableObject {
     }
 
     func openSettings() {
-        NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
+        if
+            let delegate = NSApp.delegate as? AppDelegate
+        {
+            delegate.openSettings(nil)
+        } else {
+            NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
+        }
     }
 
     func quit() {

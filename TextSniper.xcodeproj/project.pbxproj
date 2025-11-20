@@ -17,11 +17,11 @@
 		FE7A0A9D2ECEA25B007A1129 /* SelectionOverlayWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7A0A972ECEA25B007A1129 /* SelectionOverlayWindowController.swift */; };
 		FE7A0A9E2ECEA25B007A1129 /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7A0A982ECEA25B007A1129 /* TextRecognizer.swift */; };
 		FE7A0A9F2ECEA25B007A1129 /* BarcodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7A0A992ECEA25B007A1129 /* BarcodeReader.swift */; };
-		FE7A0AA22ECEA283007A1129 /* SettingsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7A0AA02ECEA283007A1129 /* SettingsContainerView.swift */; };
-		FE7A0AA32ECEA283007A1129 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7A0AA12ECEA283007A1129 /* GeneralSettingsView.swift */; };
-		FE7A0AA62ECEA2AF007A1129 /* CustomWordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7A0AA42ECEA2AF007A1129 /* CustomWordsView.swift */; };
-		FE7A0AA72ECEA2AF007A1129 /* ShortcutsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7A0AA52ECEA2AF007A1129 /* ShortcutsSettingsView.swift */; };
 		FE8D53892ECED259001ED274 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8D53882ECED259001ED274 /* AppDelegate.swift */; };
+		FEB1A0012ECF025E0080D54C /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1A0002ECF025E0080D54C /* PreferencesWindowController.swift */; };
+		FEB1A0032ECF02B00080D54C /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1A0022ECF02B00080D54C /* GeneralPreferencesViewController.swift */; };
+		FEB1A0052ECF03080080D54C /* CustomWordsPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1A0042ECF03080080D54C /* CustomWordsPreferencesViewController.swift */; };
+		FEB1A0072ECF03500080D54C /* ShortcutsPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB1A0062ECF03500080D54C /* ShortcutsPreferencesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,11 +37,11 @@
 		FE7A0A972ECEA25B007A1129 /* SelectionOverlayWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionOverlayWindowController.swift; sourceTree = "<group>"; };
 		FE7A0A982ECEA25B007A1129 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
 		FE7A0A992ECEA25B007A1129 /* BarcodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReader.swift; sourceTree = "<group>"; };
-		FE7A0AA02ECEA283007A1129 /* SettingsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContainerView.swift; sourceTree = "<group>"; };
-		FE7A0AA12ECEA283007A1129 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
-		FE7A0AA42ECEA2AF007A1129 /* CustomWordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWordsView.swift; sourceTree = "<group>"; };
-		FE7A0AA52ECEA2AF007A1129 /* ShortcutsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsSettingsView.swift; sourceTree = "<group>"; };
 		FE8D53882ECED259001ED274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FEB1A0002ECF025E0080D54C /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		FEB1A0022ECF02B00080D54C /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
+		FEB1A0042ECF03080080D54C /* CustomWordsPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWordsPreferencesViewController.swift; sourceTree = "<group>"; };
+		FEB1A0062ECF03500080D54C /* ShortcutsPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsPreferencesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +76,10 @@
 			children = (
 				FE4819B92ECE97C800AD4F46 /* TextSniperApp.swift */,
 				FE8D53882ECED259001ED274 /* AppDelegate.swift */,
+				FEB1A0002ECF025E0080D54C /* PreferencesWindowController.swift */,
+				FEB1A0022ECF02B00080D54C /* GeneralPreferencesViewController.swift */,
+				FEB1A0042ECF03080080D54C /* CustomWordsPreferencesViewController.swift */,
+				FEB1A0062ECF03500080D54C /* ShortcutsPreferencesViewController.swift */,
 				FE4819BB2ECE97C800AD4F46 /* ContentView.swift */,
 				FE7A0A942ECEA25B007A1129 /* AppState.swift */,
 				FE7A0A952ECEA25B007A1129 /* MenuBarView.swift */,
@@ -83,10 +87,6 @@
 				FE7A0A972ECEA25B007A1129 /* SelectionOverlayWindowController.swift */,
 				FE7A0A982ECEA25B007A1129 /* TextRecognizer.swift */,
 				FE7A0A992ECEA25B007A1129 /* BarcodeReader.swift */,
-				FE7A0AA02ECEA283007A1129 /* SettingsContainerView.swift */,
-				FE7A0AA12ECEA283007A1129 /* GeneralSettingsView.swift */,
-				FE7A0AA42ECEA2AF007A1129 /* CustomWordsView.swift */,
-				FE7A0AA52ECEA2AF007A1129 /* ShortcutsSettingsView.swift */,
 				FE4819BD2ECE97C900AD4F46 /* Assets.xcassets */,
 				FE4819C22ECE97C900AD4F46 /* TextSniper.entitlements */,
 				FE4819BF2ECE97C900AD4F46 /* Preview Content */,
@@ -172,12 +172,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE7A0AA72ECEA2AF007A1129 /* ShortcutsSettingsView.swift in Sources */,
 				FE4819BC2ECE97C800AD4F46 /* ContentView.swift in Sources */,
 				FE8D53892ECED259001ED274 /* AppDelegate.swift in Sources */,
-				FE7A0AA62ECEA2AF007A1129 /* CustomWordsView.swift in Sources */,
-				FE7A0AA22ECEA283007A1129 /* SettingsContainerView.swift in Sources */,
-				FE7A0AA32ECEA283007A1129 /* GeneralSettingsView.swift in Sources */,
+				FEB1A0072ECF03500080D54C /* ShortcutsPreferencesViewController.swift in Sources */,
+				FEB1A0052ECF03080080D54C /* CustomWordsPreferencesViewController.swift in Sources */,
+				FEB1A0012ECF025E0080D54C /* PreferencesWindowController.swift in Sources */,
+				FEB1A0032ECF02B00080D54C /* GeneralPreferencesViewController.swift in Sources */,
 				FE7A0A9F2ECEA25B007A1129 /* BarcodeReader.swift in Sources */,
 				FE7A0A9B2ECEA25B007A1129 /* MenuBarView.swift in Sources */,
 				FE7A0A9E2ECEA25B007A1129 /* TextRecognizer.swift in Sources */,

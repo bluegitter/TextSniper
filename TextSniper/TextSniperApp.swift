@@ -13,8 +13,7 @@ struct TextSniperApp: App {
 
     var body: some Scene {
         Settings {
-            SettingsContainerView()
-                .environmentObject(appDelegate.appState)
+            EmptyView()
         }
     }
 }

@@ -17,6 +17,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var clearHistoryItem: NSMenuItem?
     private var textToSpeechItem: NSMenuItem?
     private var stopSpeakingItem: NSMenuItem?
+    private var preferencesWindowController: PreferencesWindowController?
 
     private var cancellables: Set<AnyCancellable> = []
 
@@ -206,8 +207,21 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         appState.stopSpeaking()
     }
 
-    @objc private func openSettings(_ sender: Any?) {
-        appState.openSettings()
+    @objc func openSettings(_ sender: Any?) {
+        if preferencesWindowController == nil {
+            preferencesWindowController = PreferencesWindowController()
+        }
+
+        // 在下一个 runloop 再显示并激活
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self,
+                  let window = self.preferencesWindowController?.window else { return }
+
+            self.preferencesWindowController?.showWindow(nil)
+            window.center()
+            window.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+        }
     }
 
     @objc private func quitApp(_ sender: Any?) {
