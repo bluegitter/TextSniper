@@ -9,8 +9,10 @@ import AppKit
 import AVFoundation
 import Combine
 import SwiftUI
+import CoreGraphics
 
 final class AppState: NSObject, ObservableObject {
+    private static let screenRecordingGuideKey = "com.textsniper.hasShownScreenRecordingGuide"
     // MARK: - Published Settings
     @Published var keepLineBreaks = true
     @Published var additiveClipboard = false
@@ -47,6 +49,7 @@ final class AppState: NSObject, ObservableObject {
 
     // MARK: - Actions
     func captureText(preserveLineBreaksOverride: Bool? = nil) {
+        guard ensureScreenRecordingPermissionIfNeeded() else { return }
         captureCoordinator.beginCapture { [weak self] image in
             guard let self, let image else { return }
 
@@ -59,6 +62,7 @@ final class AppState: NSObject, ObservableObject {
     }
 
     func captureCode() {
+        guard ensureScreenRecordingPermissionIfNeeded() else { return }
         captureCoordinator.beginCapture { [weak self] image in
             guard let self, let image else { return }
             self.barcodeReader.read(from: image) { result in
@@ -76,6 +80,34 @@ final class AppState: NSObject, ObservableObject {
                 }
             }
         }
+    }
+
+    @discardableResult
+    private func ensureScreenRecordingPermissionIfNeeded() -> Bool {
+        guard #available(macOS 10.15, *) else { return true }
+        if CGPreflightScreenCaptureAccess() {
+            return true
+        }
+
+        let defaults = UserDefaults.standard
+        let hasShownGuide = defaults.bool(forKey: Self.screenRecordingGuideKey)
+
+        if !hasShownGuide {
+            defaults.set(true, forKey: Self.screenRecordingGuideKey)
+            let alert = NSAlert()
+            alert.messageText = "需要屏幕录制权限"
+            alert.informativeText = "请前往“系统设置 → 隐私与安全性 → 屏幕录制”中勾选 TextSniper，才能截取屏幕内容。"
+            alert.addButton(withTitle: "打开系统设置")
+            alert.addButton(withTitle: "稍后")
+            let response = alert.runModal()
+            if response == .alertFirstButtonReturn {
+                CGRequestScreenCaptureAccess()
+            }
+        } else {
+            ToastPresenter.shared.show(message: "尚未授予屏幕录制权限，请在系统设置中启用。")
+        }
+
+        return false
     }
 
     func showComingSoon(title: String) {
