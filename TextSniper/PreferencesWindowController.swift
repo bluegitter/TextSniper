@@ -35,7 +35,7 @@ final class PreferencesWindowController: NSWindowController, NSToolbarDelegate {
 
     private let generalVC = GeneralPreferencesViewController()
     private let customVC = CustomWordsPreferencesViewController()
-    private let shortcutsVC = ShortcutsPreferencesViewController()
+    private let shortcutsVC: ShortcutsPreferencesViewController
 
     private lazy var toolbar: NSToolbar = {
         let tb = NSToolbar(identifier: .init("PreferencesToolbar"))
@@ -48,7 +48,7 @@ final class PreferencesWindowController: NSWindowController, NSToolbarDelegate {
 
     private var currentTab: Tab = .general
 
-    init() {
+    init(appState: AppState) {
         let window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 620, height: 520),
             styleMask: [.titled, .closable, .miniaturizable],
@@ -58,7 +58,11 @@ final class PreferencesWindowController: NSWindowController, NSToolbarDelegate {
         window.titleVisibility = .hidden
         window.titlebarAppearsTransparent = true
         window.isReleasedWhenClosed = false
+        if #available(macOS 11.0, *) {
+            window.toolbarStyle = .preference
+        }
 
+        self.shortcutsVC = ShortcutsPreferencesViewController(appState: appState)
         super.init(window: window)
         window.toolbar = toolbar
         window.center()
@@ -118,6 +122,8 @@ final class PreferencesWindowController: NSWindowController, NSToolbarDelegate {
 
         let item = NSToolbarItem(itemIdentifier: itemIdentifier)
         item.label = tab.rawValue
+        item.paletteLabel = tab.rawValue
+        item.toolTip = tab.rawValue
         item.image = tab.image
         item.target = self
         item.action = #selector(toolbarItemClicked(_:))

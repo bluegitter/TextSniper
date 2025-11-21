@@ -213,7 +213,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc func openSettings(_ sender: Any?) {
         if preferencesWindowController == nil {
-            preferencesWindowController = PreferencesWindowController()
+            preferencesWindowController = PreferencesWindowController(appState: appState)
         }
 
         // 在下一个 runloop 再显示并激活

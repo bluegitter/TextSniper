@@ -5,48 +5,82 @@
 //  Created by yanfei on 2025/11/20.
 //
 
+import AppKit
 import Carbon
 import Foundation
 
 final class HotKeyManager {
     static let shared = HotKeyManager()
 
-    private var hotKeyRef: EventHotKeyRef?
+    private struct RegisteredHotKey {
+        let carbonID: UInt32
+        let ref: EventHotKeyRef?
+        let handler: () -> Void
+    }
+
+    private var hotKeys: [String: RegisteredHotKey] = [:]
+    private var idLookup: [UInt32: String] = [:]
+    private var nextID: UInt32 = 1
     private var eventHandler: EventHandlerRef?
-    private var handler: (() -> Void)?
 
     private init() {}
 
     func registerCaptureHotKey(handler: @escaping () -> Void) {
-        register(keyCode: UInt32(kVK_ANSI_2), modifiers: UInt32(cmdKey | shiftKey), handler: handler)
+        let shortcut = Shortcut(keyCode: UInt16(kVK_ANSI_2), modifiers: [.command, .shift])
+        register(id: "截取文字", shortcut: shortcut, handler: handler)
     }
 
-    private func register(keyCode: UInt32, modifiers: UInt32, handler: @escaping () -> Void) {
-        unregisterExisting()
+    func register(id: String, shortcut: Shortcut, handler: @escaping () -> Void) {
+        unregister(id: id)
         installEventHandlerIfNeeded()
 
-        var hotKeyID = EventHotKeyID(signature: Self.signature, id: 1)
-        let status = RegisterEventHotKey(keyCode, modifiers, hotKeyID, GetEventDispatcherTarget(), 0, &hotKeyRef)
+        let carbonID = nextID
+        nextID &+= 1
+
+        var hotKeyRef: EventHotKeyRef?
+        var hotKeyID = EventHotKeyID(signature: Self.signature, id: carbonID)
+        let status = RegisterEventHotKey(
+            UInt32(shortcut.keyCode),
+            shortcut.modifiers.carbonFlags,
+            hotKeyID,
+            GetEventDispatcherTarget(),
+            0,
+            &hotKeyRef
+        )
 
         if status == noErr {
-            self.handler = handler
+            let registered = RegisteredHotKey(carbonID: carbonID, ref: hotKeyRef, handler: handler)
+            hotKeys[id] = registered
+            idLookup[carbonID] = id
         } else {
-            print("[HotKeyManager] Failed to register hot key: \(status)")
+            print("[HotKeyManager] Failed to register hot key \(id): \(status)")
         }
     }
 
-    private func unregisterExisting() {
-        if let hotKeyRef {
-            UnregisterEventHotKey(hotKeyRef)
-            self.hotKeyRef = nil
+    func unregister(id: String) {
+        guard let existing = hotKeys[id] else { return }
+        if let ref = existing.ref {
+            UnregisterEventHotKey(ref)
         }
+        hotKeys[id] = nil
+        idLookup[existing.carbonID] = nil
     }
 
     deinit {
-        unregisterExisting()
+        unregisterAll()
         if let eventHandler {
             RemoveEventHandler(eventHandler)
         }
+    }
+
+    private func unregisterAll() {
+        for (_, entry) in hotKeys {
+            if let ref = entry.ref {
+                UnregisterEventHotKey(ref)
+            }
+        }
+        hotKeys.removeAll()
+        idLookup.removeAll()
     }
 
     private func installEventHandlerIfNeeded() {
@@ -90,9 +124,22 @@ final class HotKeyManager {
         guard status == noErr else { return noErr }
 
         let manager = Unmanaged<HotKeyManager>.fromOpaque(userData).takeUnretainedValue()
-        if hotKeyID.signature == HotKeyManager.signature {
-            manager.handler?()
+        if hotKeyID.signature == HotKeyManager.signature,
+           let id = manager.idLookup[hotKeyID.id],
+           let entry = manager.hotKeys[id] {
+            entry.handler()
         }
         return noErr
+    }
+}
+
+private extension NSEvent.ModifierFlags {
+    var carbonFlags: UInt32 {
+        var carbon: UInt32 = 0
+        if contains(.command) { carbon |= UInt32(cmdKey) }
+        if contains(.shift) { carbon |= UInt32(shiftKey) }
+        if contains(.option) { carbon |= UInt32(optionKey) }
+        if contains(.control) { carbon |= UInt32(controlKey) }
+        return carbon
     }
 }
