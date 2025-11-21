@@ -58,9 +58,9 @@ final class PreferencesWindowController: NSWindowController, NSToolbarDelegate {
         window.titleVisibility = .hidden
         window.titlebarAppearsTransparent = true
         window.isReleasedWhenClosed = false
-        if #available(macOS 11.0, *) {
-            window.toolbarStyle = .preference
-        }
+        // if #available(macOS 11.0, *) {
+        //     window.toolbarStyle = .preference
+        // }
 
         self.shortcutsVC = ShortcutsPreferencesViewController(appState: appState)
         super.init(window: window)
